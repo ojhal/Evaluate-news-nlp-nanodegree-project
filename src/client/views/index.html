@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8">
         <title>Test</title>
-        <script type="text/javascript" src="../../../dist/main.js"></script>
 
     </head>
 
@@ -35,6 +34,15 @@
         <footer>
             <p>This is a footer</p>
         </footer>
+        <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+        </script>
 
     </body>
 </html>
